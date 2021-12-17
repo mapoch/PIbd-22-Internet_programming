@@ -1,0 +1,59 @@
+body {
+    background-color: #eee;
+    color: #666;
+	
+    font-size: 14px;
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    
+    text-transform: uppercase;
+}
+
+.page_b {
+	height: 916px; 
+	width: 100%; 
+	background-color: RGBA(201, 228, 247, 0.3);
+}
+
+.main {
+	height: 726px;
+}
+
+#buttons {
+	height: 726px;
+	padding-left: 20px;
+	padding-top: 500px;
+}
+
+#nav_row {
+	margin-left: 10px; 
+	margin-top: 15px;
+}
+
+#table_row {
+	margin-left: 0px;
+}
+
+.page_b > .row {
+	margin-left: 20px; 
+}
+
+.page_b > .btn {
+	background-color: RGB(256, 256, 256); 
+	width: 264px; 
+	height: 30px; 
+	margin-top: 15px; 
+	margin-left: 20px;
+	border-color: RGB(0, 0, 0);
+	border-style: solid;
+    border-width: 1px;
+}
+
+.page_b .table {
+	background-color: RGB(256, 256, 256); 
+}
+
+.footer {
+	background-color: RGBA(62, 139, 194, 0.3); 
+	height: 64px;
+}

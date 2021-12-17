@@ -1,28 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Counter from './Counter';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
+import { Box, AppBar, IconButton, Toolbar, Typography, Button, Container, Card, CardContent } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Counter start={10} step={5} />
-      </header>
-    </div>
-  );
+    return (
+        <Box sx={{ flexGrow: 1}}>
+			<Header nickname="СЕЯЛОВ ДМИТРИЙ ПАНУФИЕВИЧ"/>
+            <Body/>
+			<Footer/>
+        </Box>
+    );
 }
 
 export default App;
