@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import DataTable from './DataTable';
-import { Box, Button, Container, Card, CardContent, Typography, Pagination } from '@mui/material';
+import { Container } from '@mui/material';
 
 var Body = () => {
     return (

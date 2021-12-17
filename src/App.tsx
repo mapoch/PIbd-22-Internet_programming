@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
-import { Box, AppBar, IconButton, Toolbar, Typography, Button, Container, Card, CardContent } from '@mui/material';
+import { Box } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 function App() {

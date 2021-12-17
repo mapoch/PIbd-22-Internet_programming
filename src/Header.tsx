@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Box, AppBar, IconButton, Toolbar, Typography, Button, Container, Card, CardContent } from '@mui/material';
+import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 interface HeaderProps {

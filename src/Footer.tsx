@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Box, AppBar, IconButton, Toolbar, Typography, Button, Container, Card, CardContent } from '@mui/material';
+import { AppBar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 var Footer = () => {
