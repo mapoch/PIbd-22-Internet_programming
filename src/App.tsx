@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
+import { useState } from 'react';
 import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 import { Box } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 function App() {
+	const [data, setData] = useState({ hits: [] });
+	
+
+	
     return (
         <Box sx={{ flexGrow: 1}}>
-			<Header nickname="СЕЯЛОВ ДМИТРИЙ ПАНУФИЕВИЧ"/>
+			<Header/>
             <Body/>
 			<Footer/>
         </Box>

@@ -1,7 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
 import { AppBar, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 var Footer = () => {
     return (

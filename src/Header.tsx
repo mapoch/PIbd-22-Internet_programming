@@ -1,13 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
-interface HeaderProps {
-	nickname: string;
-};
-
-var Header = (props: HeaderProps) => {
+var Header = () => {
     return (
 		<AppBar sx={{
 			bgcolor: '#c5dced',
@@ -16,14 +10,7 @@ var Header = (props: HeaderProps) => {
 			position: 'fixed',
 		}}>
 			<Toolbar>
-				<Button color="inherit">Главная</Button>
-				<Button color="inherit">Обращения</Button>
-				<Button color="inherit">Службы</Button>
-				<Button color="inherit">Новости</Button>
-				<Button color="inherit">Поддержка</Button>
-				<Button color="inherit">Личный кабинет</Button>
-				<Box sx={{ flexGrow: 10 }}></Box>
-				<Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>{props.nickname}</Typography>
+				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Репозиторий пользователя vladdy_moses</Typography>
 			</Toolbar>
 		</AppBar>
     );

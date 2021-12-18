@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import { Box, IconButton } from '@mui/material';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, TableFooter } from '@mui/material';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
@@ -8,8 +7,9 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import { useTheme } from '@mui/material/styles';
 
-function createData(numb:any, name:any, phone:any, tag:any) {
-	return { numb, name, phone, tag };
+interface GithubRepo {
+	name: string;
+	description: string;
 }
 
 interface TablePaginationActionsProps {
@@ -78,52 +78,25 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 	);
 }
 
-const rows = [
-	createData(1, 'ФСН', '555-67-76', '@ФСН'),
-	createData(2, 'СОС', '654-75-32', '@СОС'),
-	createData(3, 'ОФН', '642-55-77', '@ОФН'),
-	createData(4, 'ООН', '642-55-34', '@ООН'),
-	createData(5, 'ДПС', '642-53-13', '@ДПС'),
-	createData(6, 'ДПС', '642-53-13', '@ДПС'),
-	createData(7, 'ДПС', '642-53-13', '@ДПС'),
-	createData(8, 'ДПС', '642-53-13', '@ДПС'),
-	createData(9, 'ДПС', '642-53-13', '@ДПС'),
-	createData(10, 'ДПС', '642-53-13', '@ДПС'),
-	createData(11, 'ДПС', '642-53-13', '@ДПС'),
-	createData(12, 'ДПС', '642-53-13', '@ДПС'),
-	createData(13, 'ДПС', '642-53-13', '@ДПС'),
-	createData(14, 'ДПС', '642-53-13', '@ДПС'),
-	createData(15, 'ДПС', '642-53-13', '@ДПС'),
-	createData(16, 'ДПС', '642-53-13', '@ДПС'),
-	createData(17, 'ДПС', '642-53-13', '@ДПС'),
-	createData(18, 'ДПС', '642-53-13', '@ДПС'),
-	createData(19, 'ДПС', '642-53-13', '@ДПС'),
-	createData(20, 'ДПС', '642-53-13', '@ДПС'),
-	createData(21, 'ДПС', '642-53-13', '@ДПС'),
-	createData(22, 'ДПС', '642-53-13', '@ДПС'),
-	createData(23, 'ДПС', '642-53-13', '@ДПС'),
-	createData(24, 'ДПС', '642-53-13', '@ДПС'),
-	createData(25, 'ДПС', '642-53-13', '@ДПС'),
-	createData(26, 'ДПС', '642-53-13', '@ДПС'),
-	createData(27, 'ДПС', '642-53-13', '@ДПС'),
-	createData(28, 'ДПС', '642-53-13', '@ДПС'),
-	createData(29, 'ДПС', '642-53-13', '@ДПС'),
-	createData(30, 'ДПС', '642-53-13', '@ДПС'),
-	createData(31, 'ДПС', '642-53-13', '@ДПС'),
-	createData(32, 'ДПС', '642-53-13', '@ДПС'),
-	createData(33, 'ДПС', '642-53-13', '@ДПС'),
-	createData(34, 'ДПС', '642-53-13', '@ДПС'),
-	createData(35, 'ДПС', '642-53-13', '@ДПС'),
-	createData(36, 'ДПС', '642-53-13', '@ДПС'),
-	createData(37, 'ДПС', '642-53-13', '@ДПС'),
-	createData(38, 'ДПС', '642-53-13', '@ДПС'),
-	createData(39, 'ДПС', '642-53-13', '@ДПС'),
-	createData(40, 'ДПС', '642-53-13', '@ДПС'),
-];
-
 var DataTable = () => {
 	const [page, setPage] = React.useState(0);
 	const [rowsPerPage, setRowsPerPage] = React.useState(15);
+	const [data, setData] = useState<GithubRepo[]>([{name: '', description: ''}]);
+	
+	useEffect(() => {
+		fetch(`https://api.github.com/users/vladdy-moses/repos`)
+		.then(res => res.json())
+		.then((data: GithubRepo[]) => {
+			data.forEach((rep) => { 
+				console.log(rep.name);
+				console.log(rep.description);
+				console.log("\n");
+			});
+			setData(data);
+		})
+	}, []);
+	
+	const rows = data;
 
 	const emptyRows =
 		page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -148,21 +121,19 @@ var DataTable = () => {
 				<TableHead>
 					<TableRow>
 						<TableCell>№</TableCell>
-						<TableCell>Служба</TableCell>
-						<TableCell>Телефон</TableCell>
-						<TableCell>Тэг</TableCell>
+						<TableCell>Имя</TableCell>
+						<TableCell>Описание</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{(rowsPerPage > 0
 						? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 						: rows
-					).map((row) => (
+					).map((row, index) => (
 						<TableRow>
-							<TableCell align="left">{row.numb}</TableCell>
+							<TableCell align="left">{index}</TableCell>
 							<TableCell align="left">{row.name}</TableCell>
-							<TableCell align="left">{row.phone}</TableCell>
-							<TableCell align="left">{row.tag}</TableCell>
+							<TableCell align="left">{row.description}</TableCell>
 						</TableRow>
 					))}
 						{emptyRows > 0 && (
