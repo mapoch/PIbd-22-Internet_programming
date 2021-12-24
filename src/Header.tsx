@@ -10,7 +10,7 @@ var Header = () => {
 			position: 'fixed',
 		}}>
 			<Toolbar>
-				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Репозиторий пользователя vladdy_moses</Typography>
+				<Typography variant="h6" component={'div'} sx={{ flexGrow: 1 }}>Репозиторий пользователя vladdy_moses</Typography>
 			</Toolbar>
 		</AppBar>
     );

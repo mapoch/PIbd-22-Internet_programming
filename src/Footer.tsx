@@ -10,7 +10,7 @@ var Footer = () => {
 			height: '64px',
 			position: 'relative',
 		}}>
-			<Typography>
+			<Typography component={'div'}>
 				<h3>ВСЕ ПРАВА ЗАЩИЩЕНЫ © 2021</h3>
 			</Typography>
 		</AppBar>

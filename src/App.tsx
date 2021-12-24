@@ -7,10 +7,6 @@ import Footer from './Footer';
 import { Box } from '@mui/material';
 
 function App() {
-	const [data, setData] = useState({ hits: [] });
-	
-
-	
     return (
         <Box sx={{ flexGrow: 1}}>
 			<Header/>

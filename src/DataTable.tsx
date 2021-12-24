@@ -117,7 +117,7 @@ var DataTable = () => {
 	
     return (
 		<TableContainer sx={{ bgcolor: '#ffffff' }}>
-			<Table aria-lebel="simple table">
+			<Table>
 				<TableHead>
 					<TableRow>
 						<TableCell>№</TableCell>
@@ -130,7 +130,7 @@ var DataTable = () => {
 						? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 						: rows
 					).map((row, index) => (
-						<TableRow>
+						<TableRow key={index.toString()}>
 							<TableCell align="left">{index}</TableCell>
 							<TableCell align="left">{row.name}</TableCell>
 							<TableCell align="left">{row.description}</TableCell>
